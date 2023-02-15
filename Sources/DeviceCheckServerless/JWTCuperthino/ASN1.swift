@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias ASN1 = Data
+typealias ASN1 = Data
 
 private indirect enum ASN1Element {
     case seq(elements: [ASN1Element])
@@ -19,7 +19,7 @@ private indirect enum ASN1Element {
 }
 
 extension ASN1 {
-    public func toECKeyData() throws -> ECKeyData {
+    func toECKeyData() throws -> ECKeyData {
         let (result, _) = self.toASN1Element()
 
         guard case let ASN1Element.seq(elements: es) = result,
@@ -58,7 +58,7 @@ extension ASN1 {
     }
 
     /// Convert an ASN.1 format EC signature returned by commoncrypto into a raw 64bit signature
-    public func toRawSignature() throws -> Data {
+    func toRawSignature() throws -> Data {
         let (result, _) = self.toASN1Element()
 
         guard case let ASN1Element.seq(elements: es) = result,

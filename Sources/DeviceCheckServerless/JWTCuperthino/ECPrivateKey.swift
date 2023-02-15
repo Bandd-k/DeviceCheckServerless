@@ -12,7 +12,7 @@ import CommonCrypto
 public typealias ECPrivateKey = SecKey
 
 extension ECPrivateKey {
-    public func es256Sign(digest: String) throws -> String {
+    func es256Sign(digest: String) throws -> String {
         guard let message = digest.data(using: .utf8) else {
             throw CupertinoJWTError.digestDataCorruption
         }

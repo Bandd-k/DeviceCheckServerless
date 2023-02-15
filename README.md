@@ -1,3 +1,6 @@
+[![Swift Package Manager compatible](https://img.shields.io/badge/SPM-compatible-brightgreen.svg?style=flat&colorA=28a745&&colorB=4E4E4E)](https://github.com/apple/swift-package-manager)
+![GitHub](https://img.shields.io/github/license/bandd-k/DeviceCheckServerless)
+
 # DeviceCheckServerless
 
 Apple allows to set and query of two binary digits of data per device, which are persistent even after uninstallation. For example, you might use this data to identify devices that have already taken advantage of a promotional offer that you provide or to flag a device that you’ve determined to be fraudulent.

@@ -8,10 +8,10 @@
 
 import Foundation
 
-public typealias ECKeyData = Data
+typealias ECKeyData = Data
 
 extension ECKeyData {
-    public func toPrivateKey() throws -> ECPrivateKey {
+    func toPrivateKey() throws -> ECPrivateKey {
         var error: Unmanaged<CFError>? = nil
 
         guard let privateKey =

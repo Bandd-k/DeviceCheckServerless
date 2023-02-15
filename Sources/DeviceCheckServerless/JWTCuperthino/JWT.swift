@@ -43,7 +43,7 @@ public struct JWT: Codable {
 
     private let payload: Payload
 
-    public init(keyID: String, teamID: String, issueDate: Date, expireDuration: TimeInterval) {
+    init(keyID: String, teamID: String, issueDate: Date, expireDuration: TimeInterval) {
 
         header = Header(keyID: keyID)
 
@@ -54,14 +54,14 @@ public struct JWT: Codable {
     }
 
     /// Combine header and payload as digest for signing.
-    public func digest() throws -> String {
+    func digest() throws -> String {
         let headerString = try JSONEncoder().encode(header.self).base64EncodedURLString()
         let payloadString = try JSONEncoder().encode(payload.self).base64EncodedURLString()
         return "\(headerString).\(payloadString)"
     }
 
     /// Sign digest with P8(PEM) string. Use the result in your request authorization header.
-    public func sign(with p8: P8) throws -> String {
+    func sign(with p8: P8) throws -> String {
         let digest = try self.digest()
 
         let signature = try p8.toASN1()
