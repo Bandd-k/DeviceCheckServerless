@@ -8,13 +8,13 @@
 import Foundation
 import DeviceCheck
 
-class DeviceCheck {
+public class DeviceCheck {
     
-    enum CheckError: Error {
+    public enum CheckError: Error {
         case wrongFormat
     }
     
-    struct Bits {
+    public struct Bits {
         let bit0: Bool
         let bit1: Bool
     }
@@ -22,7 +22,7 @@ class DeviceCheck {
     private let urlSession: URLSession = URLSession.shared
     private let requestBuilder: RequestBuilder
     
-    init(p8: String, keyId: String, teamId: String, developmentAPI: Bool = false) {
+    public init(p8: String, keyId: String, teamId: String, developmentAPI: Bool = false) {
         self.requestBuilder = RequestBuilder(p8: p8, keyId: keyId, teamId: teamId, developmentAPI: developmentAPI)
     }
     
